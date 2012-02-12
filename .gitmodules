@@ -28,3 +28,6 @@
 [submodule "bundle/vim-python-virtualenv"]
 	path = bundle/vim-python-virtualenv
 	url = https://github.com/vim-scripts/vim-python-virtualenv.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git

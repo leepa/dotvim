@@ -55,6 +55,7 @@ if v:version >= 700
 endif
 
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType python set omnifunc=pythoncomplete#Complete
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -116,3 +117,9 @@ fun! SetupVAM()
 endfun
 call SetupVAM()
 
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+let g:SuperTabDefaultCompletionType = "context"
