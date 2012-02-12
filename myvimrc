@@ -1,0 +1,82 @@
+set modelines=0
+
+" Pathogen stuff
+call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+
+" Now load up color scheme etc.
+filetype off
+syntax enable
+set background=dark
+colorscheme solarized
+filetype on
+filetype plugin indent on
+set ofu=syntaxcomplete#Complete
+
+" My settings :)
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+
+set noautowrite
+set number
+set autoread
+set showmode
+set showcmd
+set nocompatible
+set ttyfast
+set ruler
+
+set incsearch
+set ignorecase
+set hlsearch
+set showmatch
+set diffopt=filler,iwhite
+
+" We like underlining bad spellings
+if v:version >= 700
+  let b:lastspelllang='en'
+  function! ToggleSpell()
+    if &spell == 1
+      let b:lastspelllang=&spelllang
+      setlocal spell!
+    elseif b:lastspelllang
+      setlocal spell spelllang=b:lastspelllang
+    else
+      setlocal spell spelllang=en
+    endif
+  endfunction
+
+  nmap ss :call ToggleSpell()
+
+  setlocal spell spelllang=en
+endif
+
+au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+set guifont=Menlo:h14
+
+nnoremap <F3> :NERDTreeToggle<CR>
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+inoremap <C-space> <C-x><C-o>
+
+au BufRead,BufNewFile *.dmsl set filetype=dmsl
+au! Syntax dmsl source ~/.vim/misc/dmsl.vim
+
+set laststatus=2
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" I it when I paste and it goes wrong!
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
