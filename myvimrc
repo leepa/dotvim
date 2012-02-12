@@ -77,7 +77,6 @@ au! Syntax dmsl source ~/.vim/misc/dmsl.vim
 set laststatus=2
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-" I it when I paste and it goes wrong!
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
@@ -123,3 +122,4 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 let g:SuperTabDefaultCompletionType = "context"
+nnoremap <F4> :CommandT<CR>
