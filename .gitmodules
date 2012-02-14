@@ -31,3 +31,9 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "bundle/vim-thrift"]
+	path = bundle/vim-thrift
+	url = https://github.com/jigish/vim-thrift.git
+[submodule "bundle/vim-puppet"]
+	path = bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet
