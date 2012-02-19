@@ -2,14 +2,15 @@ set modelines=0
 
 " Pathogen stuff
 call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
 
 " Now load up color scheme etc.
 filetype off
-syntax enable
+syntax on
 set background=dark
 colorscheme solarized
-filetype on
+" filetype on
 filetype plugin indent on
 set ofu=syntaxcomplete#Complete
 
