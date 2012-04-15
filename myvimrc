@@ -123,4 +123,7 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 let g:SuperTabDefaultCompletionType = "context"
-nnoremap <F4> :CommandT<CR>
+
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+nmap <F8> :TagbarToggle<CR>
