@@ -1,9 +1,6 @@
 [submodule "bundle/zencoding-vim"]
 	path = bundle/zencoding-vim
 	url = https://github.com/mattn/zencoding-vim.git
-[submodule "bundle/vim-thrift"]
-	path = bundle/vim-thrift
-	url = https://github.com/jigish/vim-thrift.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
