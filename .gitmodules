@@ -25,6 +25,3 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/vim-pig"]
-	path = bundle/vim-pig
-	url = https://github.com/vim-scripts/pig.vim.git
