@@ -1,17 +1,91 @@
+set nocompatible
+filetype off
 set modelines=0
 
-" Pathogen stuff
-call pathogen#infect()
-call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-" Now load up color scheme etc.
-filetype off
-syntax on
-set background=dark
-colorscheme solarized
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" Colors
+Bundle 'altercation/vim-colors-solarized'
+" Navigation
+Bundle 'ZoomWin'
+Bundle 'christoomey/vim-space'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+" UI Additions
+Bundle 'mutewinter/vim-indent-guides'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Rykka/colorv.vim'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'tomtom/quickfixsigns_vim'
+" Commands
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-fugitive'
+Bundle 'godlygeek/tabular'
+Bundle 'mileszs/ack.vim'
+Bundle 'gmarik/sudo-gui.vim'
+Bundle 'milkypostman/vim-togglelist'
+Bundle 'mutewinter/swap-parameters'
+Bundle 'keepcase.vim'
+Bundle 'scratch.vim'
+Bundle 'mattn/zencoding-vim'
+Bundle 'mutewinter/GIFL'
+Bundle 'swaroopch/vim-markdown-preview'
+" Automatic Helpers
+Bundle 'IndexedSearch'
+Bundle 'xolox/vim-session'
+Bundle 'Raimondi/delimitMate'
+Bundle 'scrooloose/syntastic'
+Bundle 'ervandew/supertab'
+Bundle 'gregsexton/MatchTag'
+Bundle 'Shougo/neocomplcache'
+" Snippets
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/snipmate-snippets'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+" Language Additions
+"   Ruby
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+"   JavaScript
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'leshill/vim-json'
+Bundle 'itspriddle/vim-jquery'
+Bundle 'nono/vim-handlebars'
+"   TomDoc
+Bundle 'mutewinter/tomdoc.vim'
+Bundle 'jc00ke/vim-tomdoc'
+"   Other Languages
+Bundle 'msanders/cocoa.vim'
+Bundle 'mutewinter/taskpaper.vim'
+Bundle 'mutewinter/nginx.vim'
+Bundle 'timcharper/textile.vim'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'acustodioo/vim-tmux'
+Bundle 'hallison/vim-markdown'
+Bundle 'xhtml.vim--Grny'
+Bundle 'groenewege/vim-less'
+" MatchIt
+Bundle 'matchit.zip'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+" Libraries
+Bundle 'L9'
+Bundle 'tpope/vim-repeat'
+Bundle 'tomtom/tlib_vim'
+Bundle 'mathml.vim'
+
+" must be after vundle
 filetype plugin indent on
-set ofu=syntaxcomplete#Complete
 
 " My settings :)
 set expandtab
@@ -39,6 +113,22 @@ set noswapfile    " It's 2012, GO AWAY FFS
 
 set esckeys
 set cursorline
+set encoding=utf8
+if exists('+colorcolumn')
+  set colorcolumn=80 " Color the 80th column differently
+endif
+" Disable tooltips for hovering keywords in Vim
+if exists('+ballooneval')
+  " This doesn't seem to stop tooltips for Ruby files
+  set noballooneval
+  " 100 second delay seems to be the only way to disable the tooltips
+  set balloondelay=100000
+endif
+
+syntax enable
+set background=dark
+colorscheme solarized
+set ofu=syntaxcomplete#Complete
 
 " Better Completion
 set completeopt=longest,menuone,preview
@@ -89,46 +179,13 @@ au! Syntax dmsl source ~/.vim/misc/dmsl.vim
 
 set laststatus=2
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+" set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
 let g:easytags_cmd = '/usr/local/bin/ctags'
-
-fun! SetupVAM()
-          " YES, you can customize this vam_install_path path and everything still works!
-          let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
-          exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
-
-          " * unix based os users may want to use this code checking out VAM
-          " * windows users want to use http://mawercer.de/~marc/vam/index.php
-          "   to fetch VAM, VAM-known-repositories and the listed plugins
-          "   without having to install curl, unzip, git tool chain first
-          " -> BUG [4] (git-less installation)
-          if !filereadable(vam_install_path.'/vim-addon-manager/.git/config') && 1 == confirm("git clone VAM into ".vam_install_path."?","&Y\n&N")
-            " I'm sorry having to add this reminder. Eventually it'll pay off.
-            call confirm("Remind yourself that most plugins ship with documentation (README*, doc/*.txt). Its your first source of knowledge. If you can't find the info you're looking for in reasonable time ask maintainers to improve documentation")
-            exec '!p='.shellescape(vam_install_path).'; mkdir -p "$p" && cd "$p" && git clone --depth 1 git://github.com/MarcWeber/vim-addon-manager.git'
-            " VAM run helptags automatically if you install or update plugins
-            exec 'helptags '.fnameescape(vam_install_path.'/vim-addon-manager/doc')
-          endif
-
-          " Example drop git sources unless git is in PATH. Same plugins can
-          " be installed form www.vim.org. Lookup MergeSources to get more control
-          " let g:vim_addon_manager['drop_git_sources'] = !executable('git')
-
-          call vam#ActivateAddons(['snipmate-snippets'], {'auto_install' : 0})
-          " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
-          "  - look up source from pool (<c-x><c-p> complete plugin names):
-          "    ActivateAddons(["foo",  ..
-          "  - name rewritings: 
-          "    ..ActivateAddons(["github:foo", .. => github://foo/vim-addon-foo
-          "    ..ActivateAddons(["github:user/repo", .. => github://user/repo
-          " Also see section "2.2. names of addons and addon sources" in VAM's documentation
-endfun
-call SetupVAM()
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -191,3 +248,258 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+" ----------------------------------------
+" Bindings
+" ----------------------------------------
+" Fixes common typos
+command! W w
+command! Q q
+map <F1> <Esc>
+imap <F1> <Esc>
+" Crazy flying pinky
+cnoremap w' w<CR>
+" This mapping along with mapping ; to : allows for quick save with ;w;
+cnoremap w; w<CR>
+" Disable the ever-annoying Ex mode shortcut key. Type visual my ass.
+nmap Q <nop>
+
+" Removes doc lookup binding because it's easy to fat finger
+nmap K k
+vmap K k
+
+" Make line completion easier
+imap <C-l> <C-x><C-l>
+
+" Easier Scrolling (think j/k with left hand)
+" All variations are mapped for now until I get used to one
+" C/M/D + d (page up)
+" C/M/D + f (page down)
+nmap <C-d> <C-b>
+if has("gui_macvim")
+  nmap <D-f> <C-f>
+  nmap <D-d> <C-b>
+else
+  nmap <M-f> <C-f>
+  nmap <M-d> <C-b>
+endif
+
+" Overrides neocomplcache with regular keyword completion
+inoremap <expr><C-k>  "\<C-x><C-n>"
+
+" Use ; for : in normal and visual mode, less keystrokes
+nnoremap ; :
+vnoremap ; :
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" Yank entire buffer with gy
+nmap gy :%y+<cr>
+
+" Make Y behave like other capital commands.
+" Hat-tip http://vimbits.com/bits/11
+nnoremap Y y$
+
+" ---------------
+" Leader Commands
+" ---------------
+
+" Toggle spelling mode with ,s
+nmap <silent> <leader>s :set spell!<CR>
+" Edit vimrc with ,v
+nmap <silent> <leader>v :e ~/.vim/vimrc<CR>
+" Quickly switch to last buffer
+nnoremap <leader>, :e#<CR>
+
+" Window Movement
+" Here's a visual guide for moving between window splits.
+"   4 Window Splits
+"   --------
+"   g1 | g2
+"   ---|----
+"   g3 | g4
+"   -------
+"
+"   6 Window Splits
+"   -------------
+"   g1 | gt | g2
+"   ---|----|----
+"   g3 | gb | g4
+"   -------------
+nmap <silent> gh :wincmd h<CR>
+nmap <silent> gj :wincmd j<CR>
+nmap <silent> gk :wincmd k<CR>
+nmap <silent> gl :wincmd l<CR>
+" Upper left window
+nmap <silent> g1 :wincmd t<CR>
+" Upper right window
+nmap <silent> g2 :wincmd b<Bar>:wincmd k<CR>
+" Lower left window
+nmap <silent> g3 :wincmd t<Bar>:wincmd j<CR>
+" Lower right window
+nmap <silent> g4 :wincmd b<CR>
+
+" Top Middle
+nmap <silent> gt g2<Bar>:wincmd h<CR>
+" Bottom Middle
+nmap <silent> gb g3<Bar>:wincmd l<CR>
+
+" Previous Window
+nmap <silent> gp :wincmd p<CR>
+" Equal Size Windows
+nmap <silent> g= :wincmd =<CR>
+" Swap Windows
+nmap <silent> gx :wincmd x<CR>
+
+" Window Splitting
+nmap <silent> <leader>sh :split<CR>
+nmap <silent> <leader>sv :vsplit<CR>
+" Because I'm dyslexic
+nmap <silent> <leader>hs :split<CR>
+nmap <silent> <leader>vs :vsplit<CR>
+nmap <silent> <leader>sc :close<CR>
+
+" -----------------------------------------------------------
+" The following commands are from Janus, http://git.io/_GhulA
+" -----------------------------------------------------------
+
+" Underline the current line with '='
+nmap <silent> <leader>ul :t.\|s/./-/g\|:nohls<cr>
+" format the entire file
+nmap <leader>fef ggVG=
+
+" ----------------------------------------
+" Plugin Configuration
+" ----------------------------------------
+
+" ---------------
+" space.vim
+" ---------------
+" Disables space mappings in select mode to fix snipMate.
+let g:space_disable_select_mode=1
+
+" ---------------
+" snipMate
+" ---------------
+" Sets up C-j as the snippet override command. If neocomplcache is completing
+" to something we don't want, we can force a snippet with c-j.
+ino <silent> <c-j> <c-g>u<c-r>=snipMate#TriggerSnippet()<cr>
+snor <silent> <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
+ino <silent> <c-r><c-j> <c-r>=snipMate#ShowAvailableSnips()<cr>
+
+" Backwards mapping to C-h
+ino <silent> <c-h> <c-r>=snipMate#BackwardsSnippet()<cr>
+snor <silent> <c-h> <esc>i<right><c-r>=snipMate#BackwardsSnippet()<cr>
+
+" These are bindings that don't behave the way you'd expect in select mode.
+" Note: Select mode is what snipMate uses when filling in a snippet.
+"
+" Idea for this fix from neocomplcache-snipmate http://git.io/uq64tQ.
+snoremap <CR> a<BS>
+snoremap <BS> a<BS>
+snoremap <right> <ESC>a
+snoremap <left> <ESC>bi
+snoremap ' a<BS>'
+snoremap ` a<BS>`
+snoremap % a<BS>%
+snoremap U a<BS>U
+snoremap ^ a<BS>^
+snoremap \ a<BS>\
+snoremap <C-x> a<BS><c-x>
+
+" ---------------
+" Neocachecompl
+" ---------------
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_cursor_hold_i=1
+let g:neocomplcache_cursor_hold_i_time=200
+let g:neocomplcache_auto_completion_start_length=1
+
+" Tab / Shift-Tab to cycle completions
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Required to make neocomplcache_cursor_hold_i_time work
+" See https://github.com/Shougo/neocomplcache/issues/140
+let s:update_time_save = &updatetime
+autocmd InsertEnter * call s:on_insert_enter()
+
+function! s:on_insert_enter()
+  if &updatetime > g:neocomplcache_cursor_hold_i_time
+    let s:update_time_save = &updatetime
+    let &updatetime = g:neocomplcache_cursor_hold_i_time
+  endif
+endfunction
+
+autocmd InsertLeave * call s:on_insert_leave()
+
+function! s:on_insert_leave()
+  if &updatetime < s:update_time_save
+    let &updatetime = s:update_time_save
+  endif
+endfunction
+
+" ---------------
+" Syntastic
+" ---------------
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
+" ---------------
+" Indent Guides
+" ---------------
+let g:indent_guides_enable_on_vim_startup=1
+
+" ---------------
+" SpeedDating
+" ---------------
+let g:speeddating_no_mappings=1 " Remove default mappings (C-a etc.)
+nmap <silent><leader>dm <Plug>SpeedDatingDown
+nmap <silent><leader>dp <Plug>SpeedDatingUp
+nmap <silent><leader>dn <Plug>SpeedDatingNowUTC
+
+" ---------------
+" Tabular
+" ---------------
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
+nmap <Leader>t, :Tabularize /,\zs<CR>
+vmap <Leader>t, :Tabularize /,\zs<CR>
+nmap <Leader>t> :Tabularize /=>\zs<CR>
+vmap <Leader>t> :Tabularize /=>\zs<CR>
+nmap <Leader>t- :Tabularize /-<CR>
+vmap <Leader>t- :Tabularize /-<CR>
+nmap <Leader>t" :Tabularize /"<CR>
+vmap <Leader>t" :Tabularize /"<CR>
+
+" ---------------
+" Zoomwin
+" ---------------
+" Zoom Window to Full Size
+nmap <silent> <leader>wo :ZoomWin<CR>
+
+" ---------------
+" Ack.vim
+" ---------------
+nmap <silent> <leader>as :AckFromSearch<CR>
+
+" ---------------
+" Vundle
+" ---------------
+nmap <Leader>bi :BundleInstall<CR>
+nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
+nmap <Leader>bc :BundleClean<CR>
+
+" ---------------
+" Powerline
+" ---------------
+" Keep ^B from showing on Windows in Powerline
+if has('win32') || has('win64')
+  let g:Powerline_symbols = 'compatible'
+elseif has('gui_macvim')
+  let g:Powerline_symbols = 'fancy'
+endif
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
