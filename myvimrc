@@ -38,6 +38,7 @@ Bundle 'mutewinter/GIFL'
 Bundle 'swaroopch/vim-markdown-preview'
 " Automatic Helpers
 Bundle 'IndexedSearch'
+Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-session'
 Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
@@ -46,7 +47,6 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
 " Snippets
 Bundle 'garbas/vim-snipmate'
-Bundle 'honza/snipmate-snippets'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 " Language Additions
 "   Ruby
@@ -54,6 +54,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'vim-scripts/rbenv.vim'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
@@ -73,6 +74,8 @@ Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
 Bundle 'xhtml.vim--Grny'
 Bundle 'groenewege/vim-less'
+Bundle 'rodjek/vim-puppet'
+Bundle 'ralph/go.vim'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
