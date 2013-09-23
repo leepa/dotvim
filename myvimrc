@@ -169,7 +169,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Menlo:h14
+set guifont=Source\ Code\ Pro:h14
 
 nnoremap <F3> :NERDTreeToggle<CR>
 
@@ -500,3 +500,5 @@ elseif has('gui_macvim')
   let g:Powerline_symbols = 'fancy'
 endif
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+
+let g:session_autoload = 'no'
