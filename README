@@ -2,7 +2,7 @@ Steps to fun...
 
 1. Install Vundle
 
-git clone http://github.com/gmarik/vundle.git ~/.vim/bundle
+git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 2. Run vim with BundleInstall
 
