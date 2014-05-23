@@ -3,7 +3,7 @@ filetype off
 set modelines=0
 
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+" set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 call vundle#rc()
 
 " let Vundle manage Vundle, required
@@ -31,7 +31,6 @@ Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'gmarik/sudo-gui.vim'
 Bundle 'milkypostman/vim-togglelist'
-Bundle 'mutewinter/swap-parameters'
 Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
 Bundle 'mattn/zencoding-vim'
@@ -76,7 +75,9 @@ Bundle 'hallison/vim-markdown'
 Bundle 'xhtml.vim--Grny'
 Bundle 'groenewege/vim-less'
 Bundle 'rodjek/vim-puppet'
-Bundle 'ralph/go.vim'
+Bundle 'fatih/vim-go'
+" Bundle 'ralph/go.vim'
+" Bundle 'dgryski/vim-godef'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -177,7 +178,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 inoremap <C-space> <C-x><C-o>
 
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 au BufRead,BufNewFile *.dmsl set filetype=dmsl
 au! Syntax dmsl source ~/.vim/misc/dmsl.vim
@@ -239,18 +240,6 @@ let ropevim_guess_project=1
 let ropevim_vim_completion=1
 let ropevim_enable_autoimport=1
 let ropevim_extended_complete=1
-
-" Add the virtualenv's site-packages to vim path
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " ----------------------------------------
 " Bindings
@@ -449,7 +438,7 @@ endfunction
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
-let g:syntastic_go_checkers = ['go', 'govet', 'golint', 'gofmt']
+let g:syntastic_go_checkers = []
 
 " ---------------
 " SpeedDating
@@ -502,3 +491,13 @@ if has('win32') || has('win64')
 endif
 
 let g:session_autoload = 'no'
+
+" Go
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap gd <Plug>(go-def)
+let g:go_fmt_autosave = 1
