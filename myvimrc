@@ -76,8 +76,6 @@ Bundle 'xhtml.vim--Grny'
 Bundle 'groenewege/vim-less'
 Bundle 'rodjek/vim-puppet'
 Bundle 'fatih/vim-go'
-" Bundle 'ralph/go.vim'
-" Bundle 'dgryski/vim-godef'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -438,7 +436,7 @@ endfunction
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
-let g:syntastic_go_checkers = []
+let g:syntastic_go_checkers = ['go']
 
 " ---------------
 " SpeedDating
@@ -500,4 +498,11 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
 let g:go_fmt_autosave = 1
+
+" Thrift
+au BufRead,BufNewFile *.thrift set filetype=thrift
+au! Syntax thrift source ~/.vim/thrift.vim
