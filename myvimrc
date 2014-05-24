@@ -46,7 +46,7 @@ Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
 Bundle 'Shougo/neocomplcache'
 " Snippets
-Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 " Language Additions
 "   Ruby
