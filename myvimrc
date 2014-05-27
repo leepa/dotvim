@@ -33,7 +33,7 @@ Bundle 'gmarik/sudo-gui.vim'
 Bundle 'milkypostman/vim-togglelist'
 Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'mutewinter/GIFL'
 Bundle 'swaroopch/vim-markdown-preview'
 " Automatic Helpers
@@ -54,7 +54,9 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
-Bundle 'vim-scripts/rbenv.vim'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rbenv'
+Bundle 'tpope/vim-endwise'
 "   JavaScript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
@@ -85,6 +87,8 @@ Bundle 'L9'
 Bundle 'tpope/vim-repeat'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mathml.vim'
+" Make Projects better
+Bundle 'tpope/vim-projectionist'
 
 " must be after vundle
 filetype plugin indent on
