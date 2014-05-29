@@ -374,35 +374,6 @@ nmap <leader>fef ggVG=
 let g:space_disable_select_mode=1
 
 " ---------------
-" snipMate
-" ---------------
-" Sets up C-j as the snippet override command. If neocomplcache is completing
-" to something we don't want, we can force a snippet with c-j.
-ino <silent> <c-j> <c-g>u<c-r>=snipMate#TriggerSnippet()<cr>
-snor <silent> <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
-ino <silent> <c-r><c-j> <c-r>=snipMate#ShowAvailableSnips()<cr>
-
-" Backwards mapping to C-h
-ino <silent> <c-h> <c-r>=snipMate#BackwardsSnippet()<cr>
-snor <silent> <c-h> <esc>i<right><c-r>=snipMate#BackwardsSnippet()<cr>
-
-" These are bindings that don't behave the way you'd expect in select mode.
-" Note: Select mode is what snipMate uses when filling in a snippet.
-"
-" Idea for this fix from neocomplcache-snipmate http://git.io/uq64tQ.
-snoremap <CR> a<BS>
-snoremap <BS> a<BS>
-snoremap <right> <ESC>a
-snoremap <left> <ESC>bi
-snoremap ' a<BS>'
-snoremap ` a<BS>`
-snoremap % a<BS>%
-snoremap U a<BS>U
-snoremap ^ a<BS>^
-snoremap \ a<BS>\
-snoremap <C-x> a<BS><c-x>
-
-" ---------------
 " Neocachecompl
 " ---------------
 let g:neocomplcache_enable_at_startup=1
@@ -441,6 +412,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 let g:syntastic_go_checkers = ['go']
+
+let g:syntastic_puppet_puppetlint_args = '--no-80chars-check --no-class_parameter_defaults-check --no-class_inherits_from_params_class-check'
 
 " ---------------
 " SpeedDating
