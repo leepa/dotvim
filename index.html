@@ -34,7 +34,9 @@
 
 <pre><code>$ mv ~/.vim ~/.vim.bak
 $ git clone git://github.com/leepa/dotvim.git ~/.vim
-$ cp ~/.vim/dotvimrc ~/.vimrc
+$ git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+$ ln -s ~/.vim/myvimrc ~/.vimrc
+$ vim -c "execute \"BundleInstall\" | q | q"
 </code></pre>
       </section>
     </div>
