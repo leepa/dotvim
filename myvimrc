@@ -21,6 +21,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'majutsushi/tagbar'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
@@ -192,7 +193,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-let g:easytags_cmd = '/usr/local/bin/ctags'
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
