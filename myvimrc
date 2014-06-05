@@ -3,8 +3,7 @@ filetype off
 set modelines=0
 
 set rtp+=~/.vim/bundle/vundle/
-" set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
@@ -92,6 +91,7 @@ Bundle 'mathml.vim'
 Bundle 'tpope/vim-projectionist'
 
 " must be after vundle
+call vundle#end()
 filetype plugin indent on
 
 " My settings :)
@@ -412,7 +412,7 @@ endfunction
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
-let g:syntastic_go_checkers = ['go']
+let g:syntastic_go_checkers = []
 
 let g:syntastic_puppet_puppetlint_args = '--no-80chars-check --no-class_parameter_defaults-check --no-class_inherits_from_params_class-check --no-only_variable_string'
 
