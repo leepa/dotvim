@@ -4,9 +4,9 @@ Steps to fun...
 
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-2. Run vim with BundleInstall
+2. Run vim with PluginInstall
 
-vim -c "execute \"BundleInstall\" | q | q"
+vim +PluginInstall +qall
 
 You can make this easier by getting oh-my-zsh and then just doing...
 
