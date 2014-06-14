@@ -1,8 +1,14 @@
-set nocompatible
+﻿set nocompatible
 filetype off
 set modelines=0
 
-set rtp+=~/.vim/bundle/vundle/
+" set the right path on windows
+if has('win32') || has('win64')
+  set rtp+=~/vimfiles/bundle/vundle/
+else
+  set rtp+=~/.vim/bundle/vundle/
+endif
+
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -34,7 +40,9 @@ Bundle 'milkypostman/vim-togglelist'
 Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
 Bundle 'mattn/emmet-vim'
-Bundle 'mutewinter/GIFL'
+if !has('win32') && !has('win64')
+  Bundle 'mutewinter/GIFL'
+endif
 Bundle 'swaroopch/vim-markdown-preview'
 " Automatic Helpers
 Bundle 'IndexedSearch'
@@ -182,8 +190,6 @@ nnoremap <F3> :NERDTreeToggle<CR>
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 inoremap <C-space> <C-x><C-o>
 
-" autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
 au BufRead,BufNewFile *.dmsl set filetype=dmsl
 au! Syntax dmsl source ~/.vim/misc/dmsl.vim
 
@@ -193,7 +199,11 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+if has('win32') || has('win64')
+  let g:tagbar_ctags_bin = 'c:/apps/ctags.exe'
+else
+  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
 
 map <c-j> <c-w>j
 map <c-k> <c-w>k
