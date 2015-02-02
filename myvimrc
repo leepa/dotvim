@@ -87,6 +87,7 @@ Bundle 'xhtml.vim--Grny'
 Bundle 'groenewege/vim-less'
 Bundle 'rodjek/vim-puppet'
 Bundle 'fatih/vim-go'
+Bundle 'PProvost/vim-ps1'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -98,6 +99,9 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'mathml.vim'
 " Make Projects better
 Bundle 'tpope/vim-projectionist'
+Bundle 'editorconfig/editorconfig-vim'
+" Heroku
+Bundle 'tpope/vim-heroku'
 
 " must be after vundle
 call vundle#end()
@@ -394,8 +398,8 @@ let g:neocomplcache_cursor_hold_i_time=200
 let g:neocomplcache_auto_completion_start_length=1
 
 " Tab / Shift-Tab to cycle completions
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Required to make neocomplcache_cursor_hold_i_time work
 " See https://github.com/Shougo/neocomplcache/issues/140
@@ -425,7 +429,7 @@ let g:syntastic_auto_loc_list=1
 
 let g:syntastic_go_checkers = []
 
-let g:syntastic_puppet_puppetlint_args = '--no-80chars-check --no-class_parameter_defaults-check --no-class_inherits_from_params_class-check --no-only_variable_string'
+let g:syntastic_puppet_puppetlint_args = '--no-80chars-check --no-class_inherits_from_params_class-check --no-only_variable_string'
 
 " ---------------
 " SpeedDating
@@ -504,3 +508,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+let g:snips_email="lee.packham@multiplay.co.uk"
+let g:snips_author="Multiplay (UK) Ltd."
