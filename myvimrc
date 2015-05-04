@@ -88,6 +88,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'rodjek/vim-puppet'
 Bundle 'fatih/vim-go'
 Bundle 'PProvost/vim-ps1'
+Bundle 'guns/vim-clojure-static'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
