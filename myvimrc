@@ -22,12 +22,13 @@ Bundle 'christoomey/vim-space'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 " UI Additions
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'tomtom/quickfixsigns_vim'
 Bundle 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'nathanaelkane/vim-indent-guides'
 " Commands
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-surround'
@@ -52,7 +53,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
-Bundle 'Shougo/neocomplcache'
+Plugin 'davidhalter/jedi-vim'
 " Snippets
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
@@ -89,6 +90,8 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'fatih/vim-go'
 Bundle 'PProvost/vim-ps1'
 Bundle 'guns/vim-clojure-static'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'chrisbra/csv.vim'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
@@ -179,7 +182,7 @@ if v:version >= 700
 endif
 
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python set omnifunc=python3complete#Complete
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -188,11 +191,10 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Sauce\ Code\ Powerline:h12
+set guifont=Sauce\ Code\ Powerline:h14
 
 nnoremap <F3> :NERDTreeToggle<CR>
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 inoremap <C-space> <C-x><C-o>
 
 au BufRead,BufNewFile *.dmsl set filetype=dmsl
@@ -512,3 +514,5 @@ let g:UltiSnipsEditSplit="vertical"
 
 let g:snips_email="lee.packham@multiplay.co.uk"
 let g:snips_author="Multiplay (UK) Ltd."
+
+let g:jedi#force_py_version = 3
