@@ -92,6 +92,7 @@ Bundle 'PProvost/vim-ps1'
 Bundle 'guns/vim-clojure-static'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'chrisbra/csv.vim'
+Bundle 'moll/vim-node'
 " MatchIt
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
