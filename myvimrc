@@ -53,11 +53,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/MatchTag'
-Plugin 'davidhalter/jedi-vim'
-" Snippets
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'Valloric/YouCompleteMe'
 " Language Additions
 "   Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -73,9 +69,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'itspriddle/vim-jquery'
 Bundle 'nono/vim-handlebars'
-"   TomDoc
-Bundle 'mutewinter/tomdoc.vim'
-Bundle 'jc00ke/vim-tomdoc'
 "   Other Languages
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/taskpaper.vim'
@@ -93,10 +86,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'chrisbra/csv.vim'
 Bundle 'moll/vim-node'
-" MatchIt
-Bundle 'matchit.zip'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'rust-lang/rust.vim'
 " Libraries
 Bundle 'L9'
 Bundle 'tpope/vim-repeat'
@@ -394,43 +384,12 @@ nmap <leader>fef ggVG=
 let g:space_disable_select_mode=1
 
 " ---------------
-" Neocachecompl
-" ---------------
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_cursor_hold_i=1
-let g:neocomplcache_cursor_hold_i_time=200
-let g:neocomplcache_auto_completion_start_length=1
-
-" Tab / Shift-Tab to cycle completions
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" Required to make neocomplcache_cursor_hold_i_time work
-" See https://github.com/Shougo/neocomplcache/issues/140
-let s:update_time_save = &updatetime
-autocmd InsertEnter * call s:on_insert_enter()
-
-function! s:on_insert_enter()
-  if &updatetime > g:neocomplcache_cursor_hold_i_time
-    let s:update_time_save = &updatetime
-    let &updatetime = g:neocomplcache_cursor_hold_i_time
-  endif
-endfunction
-
-autocmd InsertLeave * call s:on_insert_leave()
-
-function! s:on_insert_leave()
-  if &updatetime < s:update_time_save
-    let &updatetime = s:update_time_save
-  endif
-endfunction
-
-" ---------------
 " Syntastic
 " ---------------
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
+" Disable Syntastic Go Checkers as we have vim-go
 let g:syntastic_go_checkers = []
 
 let g:syntastic_puppet_puppetlint_args = '--no-80chars-check --no-class_inherits_from_params_class-check --no-only_variable_string'
@@ -503,17 +462,3 @@ let g:go_fmt_autosave = 1
 " Thrift
 au BufRead,BufNewFile *.thrift set filetype=thrift
 au! Syntax thrift source ~/.vim/thrift.vim
-
-" Ultisnip
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-let g:snips_email="lee.packham@multiplay.co.uk"
-let g:snips_author="Multiplay (UK) Ltd."
-
-let g:jedi#force_py_version = 3
