@@ -87,6 +87,7 @@ Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'chrisbra/csv.vim'
 Bundle 'moll/vim-node'
 Bundle 'rust-lang/rust.vim'
+Bundle 'hashivim/vim-hashicorp-tools'
 " Libraries
 Bundle 'L9'
 Bundle 'tpope/vim-repeat'
