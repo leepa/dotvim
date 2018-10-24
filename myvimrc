@@ -2,6 +2,10 @@
 filetype off
 set modelines=0
 
+if has('python3')
+  silent! python3 1
+endif
+
 " set the right path on windows
 if has('win32') || has('win64')
   set rtp+=~/vimfiles/bundle/vundle/
@@ -14,8 +18,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
-" Colors
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'herrbischoff/cobalt2.vim'
 " Navigation
 Bundle 'ZoomWin'
 Bundle 'christoomey/vim-space'
@@ -24,7 +27,6 @@ Bundle 'kien/ctrlp.vim'
 " UI Additions
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Rykka/colorv.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
@@ -146,7 +148,9 @@ endif
 
 syntax enable
 set background=dark
-colorscheme solarized
+if has("gui_macvim")
+  colorscheme cobalt2
+endif
 set ofu=syntaxcomplete#Complete
 
 " Better Completion
@@ -186,7 +190,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-set guifont=Sauce\ Code\ Powerline:h14
+set guifont=Fira\ Code:h14
 
 nnoremap <F3> :NERDTreeToggle<CR>
 
