@@ -16,93 +16,92 @@ endif
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-
-Bundle 'herrbischoff/cobalt2.vim'
+Plugin 'gmarik/vundle'
+Plugin 'herrbischoff/cobalt2.vim'
 " Navigation
-Bundle 'ZoomWin'
-Bundle 'christoomey/vim-space'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
+Plugin 'ZoomWin'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'kien/ctrlp.vim'
 " UI Additions
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/nerdtree'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'majutsushi/tagbar'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 " Commands
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'mileszs/ack.vim'
-Bundle 'gmarik/sudo-gui.vim'
-Bundle 'milkypostman/vim-togglelist'
-Bundle 'keepcase.vim'
-Bundle 'scratch.vim'
-Bundle 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+Plugin 'mileszs/ack.vim'
+Plugin 'gmarik/sudo-gui.vim'
+Plugin 'milkypostman/vim-togglelist'
+Plugin 'keepcase.vim'
+Plugin 'scratch.vim'
+Plugin 'mattn/emmet-vim'
 if !has('win32') && !has('win64')
-  Bundle 'mutewinter/GIFL'
+  Plugin 'mutewinter/GIFL'
 endif
-Bundle 'swaroopch/vim-markdown-preview'
+Plugin 'swaroopch/vim-markdown-preview'
 " Automatic Helpers
-Bundle 'IndexedSearch'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
-Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/syntastic'
-Bundle 'ervandew/supertab'
-Bundle 'gregsexton/MatchTag'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'IndexedSearch'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
+Plugin 'ervandew/supertab'
+Plugin 'gregsexton/MatchTag'
+Plugin 'Valloric/YouCompleteMe'
 " Language Additions
 "   Ruby
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rbenv'
-Bundle 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rbenv'
+Plugin 'tpope/vim-endwise'
 "   JavaScript
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'leshill/vim-json'
-Bundle 'itspriddle/vim-jquery'
-Bundle 'nono/vim-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'leshill/vim-json'
+Plugin 'itspriddle/vim-jquery'
+Plugin 'nono/vim-handlebars'
 "   Other Languages
-Bundle 'msanders/cocoa.vim'
-Bundle 'mutewinter/taskpaper.vim'
-Bundle 'mutewinter/nginx.vim'
-Bundle 'timcharper/textile.vim'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Bundle 'acustodioo/vim-tmux'
-Bundle 'hallison/vim-markdown'
-Bundle 'xhtml.vim--Grny'
-Bundle 'groenewege/vim-less'
-Bundle 'rodjek/vim-puppet'
-Bundle 'fatih/vim-go'
-Bundle 'PProvost/vim-ps1'
-Bundle 'guns/vim-clojure-static'
-Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'chrisbra/csv.vim'
-Bundle 'moll/vim-node'
-Bundle 'rust-lang/rust.vim'
-Bundle 'hashivim/vim-terraform'
-Bundle 'hashivim/vim-packer'
-Bundle 'hashivim/vim-consul'
+Plugin 'msanders/cocoa.vim'
+Plugin 'mutewinter/taskpaper.vim'
+Plugin 'mutewinter/nginx.vim'
+Plugin 'timcharper/textile.vim'
+Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plugin 'acustodioo/vim-tmux'
+Plugin 'hallison/vim-markdown'
+Plugin 'xhtml.vim--Grny'
+Plugin 'groenewege/vim-less'
+Plugin 'rodjek/vim-puppet'
+Plugin 'fatih/vim-go'
+Plugin 'PProvost/vim-ps1'
+Plugin 'guns/vim-clojure-static'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'chrisbra/csv.vim'
+Plugin 'moll/vim-node'
+Plugin 'rust-lang/rust.vim'
+Plugin 'hashivim/vim-terraform'
+Plugin 'hashivim/vim-packer'
+Plugin 'hashivim/vim-consul'
 " Libraries
-Bundle 'L9'
-Bundle 'tpope/vim-repeat'
-Bundle 'tomtom/tlib_vim'
-Bundle 'mathml.vim'
+Plugin 'L9'
+Plugin 'tpope/vim-repeat'
+Plugin 'tomtom/tlib_vim'
+Plugin 'mathml.vim'
+Plugin 'ekalinin/Dockerfile.vim'
 " Make Projects better
-Bundle 'tpope/vim-projectionist'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'mhinz/vim-startify'
+Plugin 'tpope/vim-projectionist'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'mhinz/vim-startify'
 " Heroku
-Bundle 'tpope/vim-heroku'
+Plugin 'tpope/vim-heroku'
 
 " must be after vundle
 call vundle#end()
@@ -148,9 +147,9 @@ endif
 
 syntax enable
 set background=dark
-if has("gui_macvim")
-  colorscheme cobalt2
-endif
+colorscheme cobalt2
+set termguicolors
+hi CursorLine term=bold cterm=bold guibg=Grey40
 set ofu=syntaxcomplete#Complete
 
 " Better Completion
@@ -161,7 +160,6 @@ au FocusLost * :silent! wall
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" We like underlining bad spellings
 if v:version >= 700
   let b:lastspelllang='en'
   function! ToggleSpell()
@@ -176,8 +174,6 @@ if v:version >= 700
   endfunction
 
   nmap ss :call ToggleSpell()
-
-  setlocal spell spelllang=en
 endif
 
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
@@ -440,9 +436,9 @@ nmap <silent> <leader>as :AckFromSearch<CR>
 " ---------------
 " Vundle
 " ---------------
-nmap <Leader>bi :BundleInstall<CR>
-nmap <Leader>bu :BundleInstall!<CR> " Because this also updates
-nmap <Leader>bc :BundleClean<CR>
+nmap <Leader>bi :PluginInstall<CR>
+nmap <Leader>bu :PluginInstall!<CR> " Because this also updates
+nmap <Leader>bc :PluginClean<CR>
 
 " ---------------
 " Powerline
