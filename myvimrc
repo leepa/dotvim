@@ -6,105 +6,97 @@ if has('python3')
   silent! python3 1
 endif
 
-" set the right path on windows
-if has('win32') || has('win64')
-  set rtp+=~/vimfiles/bundle/vundle/
-else
-  set rtp+=~/.vim/bundle/vundle/
-endif
-
-call vundle#begin()
-
+call plug#begin()
 " let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-Plugin 'herrbischoff/cobalt2.vim'
+Plug 'gmarik/vundle'
+Plug 'herrbischoff/cobalt2.vim'
 " Navigation
-Plugin 'ZoomWin'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'kien/ctrlp.vim'
+Plug 'vim-scripts/ZoomWin'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'kien/ctrlp.vim'
 " UI Additions
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'nanotech/jellybeans.vim'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
 " Commands
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-fugitive'
-Plugin 'godlygeek/tabular'
-Plugin 'mileszs/ack.vim'
-Plugin 'gmarik/sudo-gui.vim'
-Plugin 'milkypostman/vim-togglelist'
-Plugin 'keepcase.vim'
-Plugin 'scratch.vim'
-Plugin 'mattn/emmet-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
+Plug 'mileszs/ack.vim'
+Plug 'gmarik/sudo-gui.vim'
+Plug 'milkypostman/vim-togglelist'
+Plug 'vim-scripts/keepcase.vim'
+Plug 'vim-scripts/scratch.vim'
+Plug 'mattn/emmet-vim'
 if !has('win32') && !has('win64')
-  Plugin 'mutewinter/GIFL'
+  Plug 'mutewinter/GIFL'
 endif
-Plugin 'swaroopch/vim-markdown-preview'
+Plug 'swaroopch/vim-markdown-preview'
 " Automatic Helpers
-Plugin 'IndexedSearch'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
-Plugin 'gregsexton/MatchTag'
-Plugin 'Valloric/YouCompleteMe'
-" Language Additions
+Plug 'vim-scripts/IndexedSearch'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/syntastic'
+Plug 'gregsexton/MatchTag'
+Plug 'ervandew/supertab'
 "   Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rbenv'
-Plugin 'tpope/vim-endwise'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rbenv'
+Plug 'tpope/vim-endwise'
 "   JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'leshill/vim-json'
-Plugin 'itspriddle/vim-jquery'
-Plugin 'nono/vim-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'leshill/vim-json'
+Plug 'itspriddle/vim-jquery'
+Plug 'nono/vim-handlebars'
 "   Other Languages
-Plugin 'msanders/cocoa.vim'
-Plugin 'mutewinter/taskpaper.vim'
-Plugin 'mutewinter/nginx.vim'
-Plugin 'timcharper/textile.vim'
-Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
-Plugin 'acustodioo/vim-tmux'
-Plugin 'hallison/vim-markdown'
-Plugin 'xhtml.vim--Grny'
-Plugin 'groenewege/vim-less'
-Plugin 'rodjek/vim-puppet'
-Plugin 'fatih/vim-go'
-Plugin 'PProvost/vim-ps1'
-Plugin 'guns/vim-clojure-static'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'chrisbra/csv.vim'
-Plugin 'moll/vim-node'
-Plugin 'rust-lang/rust.vim'
-Plugin 'hashivim/vim-terraform'
-Plugin 'hashivim/vim-packer'
-Plugin 'hashivim/vim-consul'
+Plug 'msanders/cocoa.vim'
+Plug 'mutewinter/taskpaper.vim'
+Plug 'mutewinter/nginx.vim'
+Plug 'timcharper/textile.vim'
+Plug 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plug 'acustodioo/vim-tmux'
+Plug 'hallison/vim-markdown'
+Plug 'groenewege/vim-less'
+Plug 'rodjek/vim-puppet'
+Plug 'fatih/vim-go'
+Plug 'PProvost/vim-ps1'
+Plug 'chrisbra/csv.vim'
+Plug 'moll/vim-node'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-consul'
+" Rust
+Plug 'rust-lang/rust.vim'
+" LSP
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'ryanolsonx/vim-lsp-python'
 " Libraries
-Plugin 'L9'
-Plugin 'tpope/vim-repeat'
-Plugin 'tomtom/tlib_vim'
-Plugin 'mathml.vim'
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'vim-scripts/L9'
+Plug 'tpope/vim-repeat'
+Plug 'tomtom/tlib_vim'
+Plug 'vim-scripts/mathml.vim'
+Plug 'ekalinin/Dockerfile.vim'
 " Make Projects better
-Plugin 'tpope/vim-projectionist'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'mhinz/vim-startify'
-" Heroku
-Plugin 'tpope/vim-heroku'
-
-" must be after vundle
-call vundle#end()
+Plug 'tpope/vim-projectionist'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mhinz/vim-startify'
+Plug 'lambdalisue/vim-pyenv'
+call plug#end()
 filetype plugin indent on
 
 " My settings :)
@@ -130,6 +122,7 @@ set showmatch
 set diffopt=filler,iwhite
 set showbreak=↪
 set noswapfile    " It's 2012, GO AWAY FFS
+set hidden
 
 set esckeys
 set cursorline
@@ -148,6 +141,7 @@ endif
 syntax enable
 set background=dark
 colorscheme cobalt2
+let g:airline_theme='cobalt2'
 set termguicolors
 hi CursorLine term=bold cterm=bold guibg=Grey40
 set ofu=syntaxcomplete#Complete
@@ -201,6 +195,8 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
+au BufRead,BufNewFile *.rst let g:syntastic_rst_checkers=[]
+
 if has('win32') || has('win64')
   let g:tagbar_ctags_bin = 'c:/apps/ctags.exe'
 else
@@ -250,12 +246,6 @@ function! StripWhitespace()
   call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-
-let ropevim_codeassist_maxfixes=10
-let ropevim_guess_project=1
-let ropevim_vim_completion=1
-let ropevim_enable_autoimport=1
-let ropevim_extended_complete=1
 
 " ----------------------------------------
 " Bindings
@@ -429,18 +419,6 @@ vmap <Leader>t" :Tabularize /"<CR>
 nmap <silent> <leader>wo :ZoomWin<CR>
 
 " ---------------
-" Ack.vim
-" ---------------
-nmap <silent> <leader>as :AckFromSearch<CR>
-
-" ---------------
-" Vundle
-" ---------------
-nmap <Leader>bi :PluginInstall<CR>
-nmap <Leader>bu :PluginInstall!<CR> " Because this also updates
-nmap <Leader>bc :PluginClean<CR>
-
-" ---------------
 " Powerline
 " ---------------
 " Keep ^B from showing on Windows in Powerline
@@ -466,3 +444,16 @@ let g:go_fmt_autosave = 1
 " Thrift
 au BufRead,BufNewFile *.thrift set filetype=thrift
 au! Syntax thrift source ~/.vim/thrift.vim
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+set completeopt-=preview
+
