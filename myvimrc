@@ -9,7 +9,8 @@ endif
 call plug#begin()
 " let Vundle manage Vundle, required
 Plug 'gmarik/vundle'
-Plug 'herrbischoff/cobalt2.vim'
+" Plug 'herrbischoff/cobalt2.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Navigation
 Plug 'vim-scripts/ZoomWin'
 Plug 'Lokaltog/vim-easymotion'
@@ -54,8 +55,10 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-dispatch'
 "   JavaScript
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'leshill/vim-json'
 Plug 'itspriddle/vim-jquery'
@@ -85,6 +88,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'ryanolsonx/vim-lsp-python'
+Plug 'ryanolsonx/vim-lsp-typescript'
 " Libraries
 Plug 'vim-scripts/L9'
 Plug 'tpope/vim-repeat'
@@ -140,8 +144,8 @@ endif
 
 syntax enable
 set background=dark
-colorscheme cobalt2
-let g:airline_theme='cobalt2'
+colorscheme dracula
+let g:airline_theme='dracula'
 set termguicolors
 hi CursorLine term=bold cterm=bold guibg=Grey40
 set ofu=syntaxcomplete#Complete
@@ -440,6 +444,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 let g:go_fmt_autosave = 1
+let $GOPRIVATE='*'
 
 " Thrift
 au BufRead,BufNewFile *.thrift set filetype=thrift
@@ -452,8 +457,4 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif
-
-let g:asyncomplete_smart_completion = 1
-let g:asyncomplete_auto_popup = 1
-set completeopt-=preview
 
